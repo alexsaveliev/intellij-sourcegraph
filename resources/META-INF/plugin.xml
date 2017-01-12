@@ -1,0 +1,58 @@
+<idea-plugin version="2">
+    <id>com.sourcegraph.intellij.plugin</id>
+    <name>Open in Sourcegraph</name>
+    <version>1.0</version>
+    <vendor email="hi@sourcegraph.com" url="http://www.sourcegraph.com">Sourcegraph</vendor>
+
+    <description><![CDATA[
+      Open in Sourcegraph TODO
+    ]]></description>
+
+    <change-notes><![CDATA[
+      TODO
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="162"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+
+        <group id="com.sourcegraph.intellij.plugin" popup="true" text="Source_graph" icon="Icons.LOGO">
+            <action
+                    id="com.sourcegraph.intellij.plugin.ExploreFileAction"
+                    class="com.sourcegraph.intellij.plugin.ExploreFileAction"
+                    text="Explore _File"
+                    description="Explore File">
+                <keyboard-shortcut first-keystroke="alt ASTERISK" second-keystroke="F" keymap="$default"/>
+            </action>
+            <action
+                    id="com.sourcegraph.intellij.plugin.ExploreAtCursorAction"
+                    class="com.sourcegraph.intellij.plugin.ExploreAtCursorAction"
+                    text="Explore at _Cursor"
+                    description="Explore at _Cursor">
+                <keyboard-shortcut first-keystroke="alt ASTERISK" second-keystroke="S" keymap="$default"/>
+            </action>
+            <action
+                    id="com.sourcegraph.intellij.plugin.CopyLinkAction"
+                    class="com.sourcegraph.intellij.plugin.CopyLinkAction"
+                    text="Copy Sourcegraph _Link"
+                    description="Copy Sourcegraph link to clipboard">
+                <keyboard-shortcut first-keystroke="alt ASTERISK" second-keystroke="C" keymap="$default"/>
+            </action>
+            <separator/>
+            <add-to-group group-id="GoToMenu" anchor="after" relative-to-action="EditBookmarksGroup"/>
+            <add-to-group group-id="EditorPopupMenu.GoTo"/>
+        </group>
+
+    </actions>
+
+</idea-plugin>
